@@ -2,7 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import { useBetween } from 'use-between';
 
-import MoveButtons, { IndexStates } from './MoveButtons'
+import { IndexStates, MoveLeftButton, MoveRightButton } from './MoveButtons/MoveButtons'
+
+import './ImagesRender.css'
 
 interface PicInfo {
   id: string,
@@ -30,15 +32,21 @@ export default function ImagesRender() {
 }
 
 function ImagesDiv(params: { urls: string[] }) {
-  const {firstPicIndex} = useBetween(IndexStates);
+  const { firstPicIndex } = useBetween(IndexStates);
 
   return (
-    <div id='pictures'>
-      <MoveButtons />
-      {
-        params.urls.slice(firstPicIndex, firstPicIndex+3).map((element: string) =>
-          <img src={element} width={400}></img>)
-      }
-    </div>
+    <>
+      <MoveLeftButton />
+      <div id='pictures'>
+        {
+          params.urls.slice(firstPicIndex, firstPicIndex + 3).map((element: string) => (
+            <div className='picture-box'>
+              <img src={element} height={400}></img>
+            </div>
+          ))
+        }
+      </div>
+      <MoveRightButton />
+    </>
   )
 }
