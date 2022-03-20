@@ -1,17 +1,18 @@
 .move-button {
-    background-color: rgba(133,133,133,255);
+    background-color: rgba(64, 64, 64,255);
     border: none;
     border-radius: 10px;
     cursor: pointer;
 }
 
 .move-button:hover {
-    background-color: rgba(64, 64, 64,255);
+    background-color: rgba(133,133,133,255);
     transition-duration: .2s;
 }
 
 .disabled {
     border: 2px ridge black;
+    margin-left: -4px;
     background: none;
     border-radius: 10px;
 }
